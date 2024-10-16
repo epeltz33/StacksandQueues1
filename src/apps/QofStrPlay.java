@@ -1,5 +1,5 @@
 package apps;
-import adts.ArrayQofStringsFF0;
+import adts.*;
 
 public class QofStrPlay {
 

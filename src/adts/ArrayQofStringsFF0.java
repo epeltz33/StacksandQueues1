@@ -1,7 +1,7 @@
 package adts;
 
 public class ArrayQofStringsFF0<E> {
-    protected E queue[];
+    protected E[] queue;
     protected int FRONT = 0;
     protected int rear = -1;
     protected final int DEFAULT_CAPACITY = 5;

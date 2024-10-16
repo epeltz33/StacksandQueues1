@@ -1,3 +1,5 @@
+
+
 package apps;
 
 import adts.*;
@@ -16,7 +18,7 @@ public class StackPlay {
         myStack.push("Never");
         myStack.push("Better");
         System.out.println(myStack);
-		/* /
+
 		myStack.pop( );
 		myStack.pop( );
 		myStack.push("Of");
@@ -41,7 +43,11 @@ public class StackPlay {
 		}
 		System.out.println(myStack.isEmpty() ? "stack is empty" : "stack is not empty");
 		System.out.println(myStack.isFull()  ? "stack is full"  : "stack is not full");
-		/**/
+
     }
 
 }
+
+
+
+
