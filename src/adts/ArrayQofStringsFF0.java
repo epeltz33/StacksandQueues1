@@ -44,7 +44,7 @@ public class ArrayQofStringsFF0<E> {
     }
 
     public boolean isEmpty() {
-        return FRONT == (rear + 1) % queue.length;
+        return (rear + 1) % queue.length == FRONT;
     }
 
     public boolean isFull() {

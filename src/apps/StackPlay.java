@@ -2,13 +2,14 @@
 
 package apps;
 
-import adts.*;
+import interfaces.StackInterface;
+import adts.LLStack;
 
 public class StackPlay {
 
     public static void main(String[] args) {
 
-        LLStack<String> myStack = new LLStack<>();
+		LLStack<String> myStack = new LLStack<>();
 
         System.out.println(myStack);
         System.out.println(myStack.isEmpty() ? "stack is empty" : "stack is not empty");

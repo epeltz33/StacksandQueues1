@@ -1,42 +1,28 @@
 package apps;
 
-//----------------------------------------------------------------------
-// PostFixEvaluator.java       by Dale/Joyce/Weems             Chapter 3
-//
-// Provides a postfix expression evaluation.
-//----------------------------------------------------------------------
-
-
 import adts.LLStack;
 import java.util.Scanner;
 
 public class PostFixEvaluator {
 
-    public static int evaluate(String expression)  {
-
-        LLStack<Integer> stack = new LLStack<Integer>();
-
+    public static int evaluate(String expression) {
+        LLStack<Integer> stack = new LLStack<>();
         int value;
-
         String operator;
-
         int operand1;
-        int operand2 = 0;
-
-        int result = 0;
+        int operand2;
+        int result;
 
         Scanner tokenizer = new Scanner(expression);
 
         while (tokenizer.hasNext()) {
-
             if (tokenizer.hasNextInt()) {  // must be an operand
                 value = tokenizer.nextInt();
                 if (stack.isFull()) {
                     throw new PostFixException("Stack overflow");
                 }
                 stack.push(value);
-            }
-            else {
+            } else {
                 // assume next token is an operator
                 operator = tokenizer.next();
 
@@ -53,19 +39,22 @@ public class PostFixEvaluator {
                 operand1 = stack.pop();
 
                 // Perform operation.
-                if (operator.equals("/"))
-                    result = operand1 / operand2;
-                else
-                if (operator.equals("*"))
-                    result = operand1 * operand2;
-                else
-                if (operator.equals("+"))
-                    result = operand1 + operand2;
-                else
-                if (operator.equals("-"))
-                    result = operand1 - operand2;
-                else
-                    throw new PostFixException("Illegal symbol: " + operator);
+                switch (operator) {
+                    case "/":
+                        result = operand1 / operand2;
+                        break;
+                    case "*":
+                        result = operand1 * operand2;
+                        break;
+                    case "+":
+                        result = operand1 + operand2;
+                        break;
+                    case "-":
+                        result = operand1 - operand2;
+                        break;
+                    default:
+                        throw new PostFixException("Illegal symbol: " + operator);
+                }
 
                 // push result of operation onto stack
                 stack.push(result);
